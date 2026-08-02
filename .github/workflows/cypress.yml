@@ -1,0 +1,35 @@
+name: Cypress API Tests
+
+on:
+  push:
+    paths:
+      - "ebac_api_cy/**"
+      - ".github/workflows/cypress.yml"
+  workflow_dispatch:
+
+jobs:
+  cypress-api:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Install API dependencies
+        working-directory: ebac_api_cy/hub-de-leitura-api
+        run: npm ci
+
+      - name: Start API
+        working-directory: ebac_api_cy/hub-de-leitura-api
+        run: npm start &
+
+      - name: Run Cypress API tests
+        uses: cypress-io/github-action@v7
+        with:
+          working-directory: ebac_api_cy/hub-de-leitura-api-teste-task
+          wait-on: "http://localhost:3000/api/books"
+          wait-on-timeout: 120
+          record: true
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
