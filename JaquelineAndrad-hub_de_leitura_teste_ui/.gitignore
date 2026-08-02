@@ -1,0 +1,15 @@
+# dependências
+node_modules/
+hub-de-leitura-integrado/node_modules/
+
+# relatórios
+mochawesome-report/
+cypress/reports/
+cypress/screenshots/
+cypress/videos/
+
+# arquivos locais
+.env
+.env.*
+.DS_Store
+npm-debug.log*

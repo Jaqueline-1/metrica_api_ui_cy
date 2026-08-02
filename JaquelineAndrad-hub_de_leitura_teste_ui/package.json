@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "cypress": "^15.9.0"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^10.2.0",
+    "cypress-mochawesome-reporter": "^4.0.2"
+  },
+  "name": "taskcypress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "cypress.config.js",
+  "scripts": {
+    "test": "npx cypress run",
+    "integrado": "cd hub-de-leitura-integrado && npm run dev"
+    
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

@@ -1,0 +1,1 @@
+﻿# JaquelineAndrad-hub_de_leitura_teste_ui
